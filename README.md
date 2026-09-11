@@ -44,20 +44,22 @@ tự build từ source trừ khi bạn muốn tùy chỉnh.
 ### Bước 2 — Tải model nhận dạng giọng nói (không đi kèm trong repo)
 
 File model (định dạng GGML) **không** được đính kèm trong repo/Releases vì kích
-thước quá lớn (vài trăm MB đến vài GB). Tự tải model bạn cần từ kho chính thức
-trên Hugging Face:
+thước quá lớn (vài trăm MB đến vài GB). Kho gốc trên Hugging Face có **rất nhiều**
+file model khác nhau (`tiny`, `base`, `small`, `medium`, `large`, bản `.en`, bản
+lượng tử hóa `q5`/`q8`...) — dễ tải nhầm nếu chưa quen. Để đơn giản, dùng thẳng 1
+trong 3 link tải trực tiếp bên dưới, chọn theo cấu hình máy:
 
-👉 **https://huggingface.co/ggerganov/whisper.cpp/tree/main**
-
-| Model | Kích thước | RAM ước tính | Khuyến nghị |
-|---|---|---|---|
-| `ggml-small.bin` | ~466 MB | ~852 MB | **Tối thiểu nên dùng** — cấu hình máy phổ thông |
-| `ggml-medium.bin` | ~1.53 GB | ~2.1 GB | Chính xác hơn small rõ rệt, cần máy khá hơn |
-| `ggml-large-v3.bin` | ~3.1 GB | ~3.9 GB | Chính xác nhất, cần máy mạnh + RAM rộng rãi |
+| Model | Phù hợp với | Kích thước | RAM ước tính | Link tải |
+|---|---|---|---|---|
+| `ggml-small.bin` | **Người dùng phổ thông** — máy cấu hình thường, ưu tiên chạy nhẹ, chấp nhận độ chính xác ở mức khá | ~466 MB | ~852 MB | [Tải trực tiếp](https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin) |
+| `ggml-medium.bin` | Cân bằng — máy tầm trung trở lên, muốn chính xác hơn hẳn small | ~1.53 GB | ~2.1 GB | [Tải trực tiếp](https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-medium.bin) |
+| `ggml-large-v3.bin` | **Người dùng chuyên nghiệp** — máy cấu hình mạnh, RAM rộng rãi, ưu tiên độ chính xác cao nhất | ~3.1 GB | ~3.9 GB | [Tải trực tiếp](https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3.bin) |
 
 Không có "model đúng cho mọi máy" — chọn dựa theo RAM và tốc độ xử lý máy bạn
 chấp nhận được. `small` là mức sàn để chương trình chạy được; máy càng khỏe,
-càng nên thử `medium`/`large-v3` để có độ chính xác tốt hơn đáng kể.
+càng nên thử `medium`/`large-v3` để có độ chính xác tốt hơn đáng kể. Cần model
+khác ngoài 3 lựa chọn trên (ví dụ `tiny` cho máy rất yếu) — xem đầy đủ tại
+[kho gốc Hugging Face](https://huggingface.co/ggerganov/whisper.cpp/tree/main).
 
 ### Bước 3 — Đặt file
 
@@ -119,9 +121,13 @@ thư mục `examples/` của repo.
 
 ### Từ VBA (Excel)
 
-Repo đính kèm sẵn 3 module VBA đã build và test thực tế trong thư mục
-[`vba/`](vba/) — import cả 3 vào workbook (`Alt+F11` → *File → Import File...*)
-là dùng được ngay, không cần tự viết `Declare` từ đầu:
+**Cách nhanh nhất để thử ngay:** mở sẵn file [`Speech_To_Text_Demo.xlsb`](Speech_To_Text_Demo.xlsb)
+đính kèm trong repo — đã nhúng sẵn cả 3 module VBA bên dưới, chỉ cần đặt cùng
+thư mục với 2 DLL + model rồi mở lên dùng luôn, không cần tự import gì cả.
+
+Muốn tích hợp vào workbook của riêng bạn: import 3 module VBA dưới đây (`Alt+F11`
+→ *File → Import File...*) — đã build và test thực tế, không cần tự viết
+`Declare` từ đầu:
 
 | Module | Vai trò |
 |---|---|
