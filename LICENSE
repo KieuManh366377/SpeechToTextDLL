@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Kiều Mạnh
+Copyright (c) 2026 Kieu Manh
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+This software links against / redistributes the following third-party
+open-source components:
+
+- whisper.cpp (https://github.com/ggml-org/whisper.cpp) — MIT License
+- minimp3 (https://github.com/lieff/minimp3) — Public Domain / Unlicense
+
+Their respective licenses apply to those components.
